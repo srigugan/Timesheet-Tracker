@@ -27,12 +27,21 @@ class Timesheet:
             - logging the same day again should overwrite the old value
         """
         # TODO: validate hours, then store in self.entries
-        raise NotImplementedError
+        if hours < 0:
+            raise ValueError("Hours cannot be negative.")
+
+        self.entries[day] = hours;
+
+
 
     def weekly_total(self):
         """Return the sum of all logged hours as a number."""
         # TODO: add up every value in self.entries and return it
-        raise NotImplementedError
+        total = 0;
+        for i in self.entries:
+            total += self.entries[i]
+
+        return total;
 
     def export_csv(self):
         """Return the timesheet as CSV text.
@@ -42,8 +51,20 @@ class Timesheet:
             2026-08-03,8
             2026-08-04,7.5
         """
+        sortedEntries = dict(sorted(self.entries.items(), key=lambda x: date.strptime(x[0], "%Y-%m-%d")))
+
+        export = "date,hours\n"
+        # for i in sortedEntries:
+        #     export += i+","+str(sortedEntries[i])+"\n"
+
+        for index, (key, value) in enumerate(sortedEntries.items()):
+            if(index+1==len(sortedEntries)):
+                export += key+","+str(value)
+            else:
+                export += key+","+str(value)+"\n"
+
+        return export
         # TODO: build and return the CSV string
-        raise NotImplementedError
 
 
 if __name__ == "__main__":

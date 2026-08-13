@@ -1,0 +1,17 @@
+{
+  "name": "timesheet-tracker",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Time tracking and project management app (internship build project)",
+  "scripts": {
+    "setup": "npm run setup:web && npm run setup:api",
+    "setup:web": "bash apps/web/scripts/setup.sh",
+    "setup:api": "bash apps/api/scripts/setup.sh",
+    "dev:web": "npm run dev --prefix apps/web",
+    "dev:api": "bash apps/api/scripts/dev.sh",
+    "build:web": "npm run build --prefix apps/web"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

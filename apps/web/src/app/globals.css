@@ -1,0 +1,361 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f3efe6;
+  --bg-accent: #e4ece8;
+  --ink: #1c2421;
+  --muted: #5c6b64;
+  --line: #c9d2cb;
+  --panel: rgba(255, 252, 246, 0.88);
+  --pass: #1f6b4a;
+  --pass-soft: #d7efe4;
+  --fail: #9b2c2c;
+  --fail-soft: #f6d9d6;
+  --idle: #6b7280;
+  --accent: #0f5c4c;
+  --accent-ink: #f7faf8;
+  --iniyan: #245b8a;
+  --shayan: #8a4b1f;
+  --shared: #3d4a45;
+  --shadow: 0 18px 50px rgba(28, 36, 33, 0.08);
+  --font-sans: var(--font-geist-sans), "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #dfece6 0%, transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, #efe6d4 0%, transparent 50%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-accent) 100%);
+}
+
+.progress-shell {
+  width: min(920px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+}
+
+.progress-hero {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1.6fr 0.8fr;
+  align-items: end;
+  margin-bottom: 1.75rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.progress-hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.lede {
+  margin: 0.85rem 0 0;
+  max-width: 38rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.score {
+  display: grid;
+  gap: 0.2rem;
+  justify-items: end;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.score strong {
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+
+.score span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.fail-count {
+  color: var(--fail) !important;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.filters,
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip,
+.btn {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+.chip {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+}
+
+.chip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.btn {
+  padding: 0.65rem 1rem;
+  border-radius: 0.65rem;
+  font-weight: 600;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.btn.secondary {
+  background: #e8f1ed;
+}
+
+.btn.ghost {
+  background: transparent;
+}
+
+.btn.compact {
+  padding: 0.45rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.milestone-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.milestone {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  padding: 1.15rem 1.2rem 0.85rem;
+}
+
+.milestone-head {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 0.85rem;
+}
+
+.milestone-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.55rem;
+}
+
+.owner,
+.badge,
+.kind {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.owner {
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  color: white;
+}
+
+.owner-iniyan {
+  background: var(--iniyan);
+}
+
+.owner-shayan {
+  background: var(--shayan);
+}
+
+.owner-shared {
+  background: var(--shared);
+}
+
+.badge {
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: #eceae3;
+  color: var(--idle);
+}
+
+.badge-pass {
+  background: var(--pass-soft);
+  color: var(--pass);
+}
+
+.badge-fail {
+  background: var(--fail-soft);
+  color: var(--fail);
+}
+
+.badge-partial {
+  background: #efe5c8;
+  color: #7a5a12;
+}
+
+.milestone h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.milestone-head p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.test-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.test-row {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: start;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #e5e1d7;
+}
+
+.test-row:last-child {
+  border-bottom: 0;
+}
+
+.test-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: #b7b3a8;
+}
+
+.dot-pass {
+  background: var(--pass);
+}
+
+.dot-fail {
+  background: var(--fail);
+}
+
+.kind {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0;
+  text-transform: lowercase;
+}
+
+.criterion,
+.message {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.criterion {
+  color: var(--muted);
+}
+
+.message {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.msg-pass {
+  color: var(--pass);
+}
+
+.msg-fail {
+  color: var(--fail);
+}
+
+@media (max-width: 720px) {
+  .progress-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .score {
+    justify-items: start;
+  }
+
+  .milestone-head {
+    flex-direction: column;
+  }
+
+  .toolbar {
+    align-items: stretch;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions .btn {
+    flex: 1;
+  }
+}

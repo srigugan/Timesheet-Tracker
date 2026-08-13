@@ -1,11 +1,34 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
 .pytest_cache/
-
-# Virtual environment
+.mypy_cache/
+.ruff_cache/
 venv/
-.env
+.venv/
 
-# macOS
+# Next.js
+apps/web/.next/
+apps/web/out/
+
+# Build / misc
+dist/
+build/
+*.log
 .DS_Store
+*.tsbuildinfo
+
+# Editors / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
